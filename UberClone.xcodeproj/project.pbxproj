@@ -15,6 +15,7 @@
 		2924B306252C99170037F2A7 /* UberCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B305252C99170037F2A7 /* UberCloneTests.swift */; };
 		2924B311252C99170037F2A7 /* UberCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B310252C99170037F2A7 /* UberCloneUITests.swift */; };
 		2924B327252C9A560037F2A7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B326252C9A560037F2A7 /* LoginController.swift */; };
+		2924B332252CB4D20037F2A7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B331252CB4D20037F2A7 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2924B310252C99170037F2A7 /* UberCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCloneUITests.swift; sourceTree = "<group>"; };
 		2924B312252C99170037F2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2924B326252C9A560037F2A7 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		2924B331252CB4D20037F2A7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		2924B321252C99AB0037F2A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2924B331252CB4D20037F2A7 /* Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				2924B327252C9A560037F2A7 /* LoginController.swift in Sources */,
 				2924B2EF252C99160037F2A7 /* AppDelegate.swift in Sources */,
 				2924B2F1252C99160037F2A7 /* SceneDelegate.swift in Sources */,
+				2924B332252CB4D20037F2A7 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
