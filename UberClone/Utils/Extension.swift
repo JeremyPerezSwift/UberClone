@@ -78,4 +78,40 @@ extension UIView {
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
+    func inputContainerView(withImage image: UIImage, textField: UITextField) -> UIView {
+        let view = UIView()
+        let imageView = UIImageView()
+        
+        imageView.image = image
+        imageView.alpha = 0.8
+        view.addSubview(imageView)
+        imageView.centerY(inView: view)
+        imageView.anchor(left: view.leftAnchor, paddingLeft: 8, width: 24, height: 24)
+        
+        view.addSubview(textField)
+        textField.anchor(top: view.topAnchor, left: imageView.rightAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8)
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = .lightGray
+        view.addSubview(separatorView)
+        separatorView.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor,paddingLeft: 8, height: 0.75)
+        
+        return view
+    }
+    
+}
+
+extension UITextField {
+    
+    func textField(withPlaceHolder placeholder: String, isSecureTextEntry: Bool, fontSize: CGFloat) -> UITextField {
+        let textField = UITextField()
+        textField.borderStyle = .none
+        textField.font = UIFont.systemFont(ofSize: fontSize)
+        textField.textColor = .white
+        textField.keyboardAppearance = .dark
+        textField.isSecureTextEntry = isSecureTextEntry
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        return textField
+    }
+    
 }
