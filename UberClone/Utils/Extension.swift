@@ -87,18 +87,28 @@ extension UIView {
         heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
-    func inputContainerView(withImage image: UIImage, textField: UITextField) -> UIView {
+    func inputContainerView(withImage image: UIImage, textField: UITextField? = nil, segmentedControl: UISegmentedControl? = nil) -> UIView {
         let view = UIView()
         let imageView = UIImageView()
         
         imageView.image = image
         imageView.alpha = 0.8
         view.addSubview(imageView)
-        imageView.centerY(inView: view)
-        imageView.anchor(left: view.leftAnchor, paddingLeft: 8, width: 24, height: 24)
         
-        view.addSubview(textField)
-        textField.anchor(top: view.topAnchor, left: imageView.rightAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8)
+        if let textField = textField {
+            imageView.centerY(inView: view)
+            imageView.anchor(left: view.leftAnchor, paddingLeft: 8, width: 24, height: 24)
+            
+            view.addSubview(textField)
+            textField.anchor(top: view.topAnchor, left: imageView.rightAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingBottom: 8, paddingRight: 8)
+        }
+        
+        if let segmentedControl = segmentedControl {
+            imageView.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 8, paddingLeft: 8, width: 24, height: 24)
+            
+            view.addSubview(segmentedControl)
+            segmentedControl.anchor(top: imageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 8, paddingLeft: 8, paddingRight: 8)
+        }
         
         let separatorView = UIView()
         separatorView.backgroundColor = .lightGray
@@ -121,6 +131,22 @@ extension UITextField {
         textField.isSecureTextEntry = isSecureTextEntry
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         return textField
+    }
+    
+}
+
+
+extension UIButton {
+    
+    func mainButton(title: String, bgColor: UIColor, fontSize: CGFloat) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(UIColor(white: 1, alpha: 0.5), for: .normal)
+        button.backgroundColor = bgColor
+        button.layer.cornerRadius = 5
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: fontSize)
+        return button
     }
     
 }
