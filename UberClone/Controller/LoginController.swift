@@ -84,7 +84,11 @@ class LoginController: UIViewController {
                 return
             }
             
-            print("DEBUG: Successfully logged user in ...")
+            let rootViewController =  UIApplication.shared.windows.first { $0.isKeyWindow }
+            guard let controller = rootViewController?.rootViewController as? HomeController else { return }
+            controller.configureUI()
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
