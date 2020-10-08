@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpController: UIViewController {
     
@@ -64,7 +65,9 @@ class SignUpController: UIViewController {
     }()
     
     private let authButton: UIButton = {
-        return UIButton().mainButton(title: "Save", bgColor: .mainBlueTint, fontSize: 19)
+        let button = UIButton().mainButton(title: "Save", bgColor: .mainBlueTint, fontSize: 19)
+        button.addTarget(self, action: #selector(handleAuth), for: .touchUpInside)
+        return button
     }()
     
     let alreadyHaveAccountButton: UIButton = {
@@ -73,7 +76,7 @@ class SignUpController: UIViewController {
         
         attributedTitle.append(NSMutableAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
         
-        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         
         button.setAttributedTitle(attributedTitle, for: .normal)
         
@@ -89,7 +92,28 @@ class SignUpController: UIViewController {
     
     // MARK: - Selectors
     
-    @objc func handleShowSignUp() {
+    @objc func handleAuth() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        let accountTypeIndex = accountTypeSegmentedControl.selectedSegmentIndex
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Failed to register user with erro \(error)")
+                return
+            }
+            
+            guard let uid = result?.user.uid else { return }
+            let values = ["email": email, "fullname": fullname, "accountType": accountTypeIndex] as [String : Any]
+            
+            Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
+                print("Successfully register user and saved data...")
+            }
+        }
+    }
+    
+    @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
     
