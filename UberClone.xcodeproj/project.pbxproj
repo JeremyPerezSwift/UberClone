@@ -18,6 +18,7 @@
 		2924B332252CB4D20037F2A7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B331252CB4D20037F2A7 /* Extension.swift */; };
 		2981B6A2252DE7D0007CD1C0 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */; };
 		29B8D039252EDC8700A3254F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B8D038252EDC8700A3254F /* GoogleService-Info.plist */; };
+		29F7FFCC252F010700B70922 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7FFCB252F010700B70922 /* HomeController.swift */; };
 		35B1798413B530A453895B89 /* Pods_UberCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94B708C936D0D120EAE8759 /* Pods_UberCloneTests.framework */; };
 		7BC9918D1F59626E4105DEC8 /* Pods_UberClone_UberCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C4B634D2738C376C8539AB /* Pods_UberClone_UberCloneUITests.framework */; };
 		DDB3710335C58E96C6A30AE3 /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CD946794553624959B94E7 /* Pods_UberClone.framework */; };
@@ -60,6 +61,7 @@
 		2924B331252CB4D20037F2A7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		29B8D038252EDC8700A3254F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		29F7FFCB252F010700B70922 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		7670684A989613A3E16701FF /* Pods-UberClone-UberCloneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone-UberCloneUITests.debug.xcconfig"; path = "Target Support Files/Pods-UberClone-UberCloneUITests/Pods-UberClone-UberCloneUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		78CD946794553624959B94E7 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80CD0B5B6B8D67129D526BC3 /* Pods-UberCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneTests.debug.xcconfig"; path = "Target Support Files/Pods-UberCloneTests/Pods-UberCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				2924B326252C9A560037F2A7 /* LoginController.swift */,
 				2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */,
+				29F7FFCB252F010700B70922 /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			files = (
 				2981B6A2252DE7D0007CD1C0 /* SignUpController.swift in Sources */,
 				2924B327252C9A560037F2A7 /* LoginController.swift in Sources */,
+				29F7FFCC252F010700B70922 /* HomeController.swift in Sources */,
 				2924B2EF252C99160037F2A7 /* AppDelegate.swift in Sources */,
 				2924B2F1252C99160037F2A7 /* SceneDelegate.swift in Sources */,
 				2924B332252CB4D20037F2A7 /* Extension.swift in Sources */,
