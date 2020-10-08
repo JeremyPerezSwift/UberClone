@@ -14,6 +14,7 @@ class HomeController: UIViewController {
     // MARK: - Properties
     
     private let mapView = MKMapView()
+    private let locationManager = CLLocationManager()
     
     // MARK: - Lyfecycle
     
@@ -23,6 +24,7 @@ class HomeController: UIViewController {
         view.backgroundColor = .mainBlueTint
 //        signOut()
         checkIfUserIsLoggedIn()
+        locationManagerAuthorization()
     }
     
     // MARK: - API
@@ -55,5 +57,42 @@ class HomeController: UIViewController {
         view.addSubview(mapView)
         mapView.frame = view.frame
     }
+}
 
+// MARK: - LocationServices
+
+extension HomeController: CLLocationManagerDelegate {
+    
+    func locationManagerAuthorization() {
+        
+        locationManager.delegate = self
+        
+        switch CLLocationManager().authorizationStatus {
+        case .notDetermined:
+            print("DEBUG: Not determined")
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            break
+        case .denied:
+            break
+        case .authorizedAlways:
+            print("DEBUG: Auth always")
+            locationManager.startUpdatingLocation()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        case .authorizedWhenInUse:
+            print("DEBUG: Auth when in use")
+            locationManager.requestAlwaysAuthorization()
+        @unknown default:
+            break
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse {
+            locationManager.requestAlwaysAuthorization()
+        }
+    }
+    
+    
+    
 }
