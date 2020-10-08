@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -40,7 +41,9 @@ class LoginController: UIViewController {
     }()
     
     private let loginButton: UIButton = {
-        return UIButton().mainButton(title: "Login", bgColor: .mainBlueTint, fontSize: 19)
+        let button = UIButton().mainButton(title: "Login", bgColor: .mainBlueTint, fontSize: 19)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        return button
     }()
     
     let dontHaveAccountButton: UIButton = {
@@ -70,6 +73,20 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Selectors
+    
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let erro = error {
+                print("DEBUG: Failed to log user in with error \(erro.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Successfully logged user in ...")
+        }
+    }
     
     @objc func handleShowSignUp() {
         let controller = SignUpController()
