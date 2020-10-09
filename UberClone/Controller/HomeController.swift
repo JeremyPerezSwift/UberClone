@@ -112,9 +112,11 @@ class HomeController: UIViewController {
         tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 60
         
+        tableView.tableFooterView = UIView()
+        
         let height = view.frame.height - (view.frame.height / 4)
         tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
-        tableView.backgroundColor = .mainBlueTint
+//        tableView.backgroundColor = .mainBlueTint
         
         view.addSubview(tableView)
     }
@@ -187,8 +189,16 @@ extension HomeController: LocationInputViewDelegate {
 // MARK: - UITableViewDelegate & UITableViewDataSource
 
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return " "
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return section == 0 ? 2 : 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
