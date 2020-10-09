@@ -9,6 +9,8 @@ import UIKit
 import Firebase
 import MapKit
 
+private let reuseIdentifier = "LocationCell"
+
 class HomeController: UIViewController {
     
     // MARK: - Properties
@@ -18,6 +20,7 @@ class HomeController: UIViewController {
     
     private let inputActivationView = LocationInputActivationView()
     private let locationInputView = LocationInputView()
+    private let tableView = UITableView()
     
     // MARK: - Lyfecycle
     
@@ -70,6 +73,8 @@ class HomeController: UIViewController {
         UIView.animate(withDuration: 1.5) {
             self.inputActivationView.alpha = 1
         }
+        
+        configureTableView()
     }
     
     func configureMapView() {
@@ -96,6 +101,20 @@ class HomeController: UIViewController {
             print("DEBUG: Present table view")
         }
 
+    }
+    
+    func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.rowHeight = 60
+        
+        let height = view.frame.height - (view.frame.height / 4)
+        tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
+        tableView.backgroundColor = .mainBlueTint
+        
+        view.addSubview(tableView)
     }
 }
 
@@ -157,5 +176,18 @@ extension HomeController: LocationInputViewDelegate {
             }
         }
 
+    }
+}
+
+// MARK: - UITableViewDelegate & UITableViewDataSource
+
+extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LocationCell
+        return cell
     }
 }

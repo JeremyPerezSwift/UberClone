@@ -16,6 +16,7 @@
 		2924B311252C99170037F2A7 /* UberCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B310252C99170037F2A7 /* UberCloneUITests.swift */; };
 		2924B327252C9A560037F2A7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B326252C9A560037F2A7 /* LoginController.swift */; };
 		2924B332252CB4D20037F2A7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B331252CB4D20037F2A7 /* Extension.swift */; };
+		295C2F6725305BED007F37FF /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C2F6625305BED007F37FF /* LocationCell.swift */; };
 		2981B6A2252DE7D0007CD1C0 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */; };
 		299836672530362200554345 /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299836662530362200554345 /* LocationInputView.swift */; };
 		29B8D039252EDC8700A3254F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B8D038252EDC8700A3254F /* GoogleService-Info.plist */; };
@@ -61,6 +62,7 @@
 		2924B312252C99170037F2A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2924B326252C9A560037F2A7 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		2924B331252CB4D20037F2A7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		295C2F6625305BED007F37FF /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		299836662530362200554345 /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		29B8D038252EDC8700A3254F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				29B94691252F5DC400E4401F /* LocationInputActivationView.swift */,
 				299836662530362200554345 /* LocationInputView.swift */,
+				295C2F6625305BED007F37FF /* LocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				2924B2EF252C99160037F2A7 /* AppDelegate.swift in Sources */,
 				2924B2F1252C99160037F2A7 /* SceneDelegate.swift in Sources */,
 				29B94692252F5DC400E4401F /* LocationInputActivationView.swift in Sources */,
+				295C2F6725305BED007F37FF /* LocationCell.swift in Sources */,
 				299836672530362200554345 /* LocationInputView.swift in Sources */,
 				2924B332252CB4D20037F2A7 /* Extension.swift in Sources */,
 			);
