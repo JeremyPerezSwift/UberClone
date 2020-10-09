@@ -19,8 +19,14 @@ class HomeController: UIViewController {
     private let locationManager = CLLocationManager()
     
     private let inputActivationView = LocationInputActivationView()
-    private let locationInputView = LocationInputView()
+    private var locationInputView = LocationInputView()
     private let tableView = UITableView()
+    
+    private var fullname: String? {
+        didSet {
+            locationInputView.titleLabel.text = fullname
+        }
+    }
     
     // MARK: - Lyfecycle
     
@@ -37,7 +43,9 @@ class HomeController: UIViewController {
     // MARK: - API
     
     func fetchUserData() {
-        Service.shared.fetchUserData()
+        Service.shared.fetchUserData { (fullname) in
+            self.fullname = fullname
+        }
     }
     
     func checkIfUserIsLoggedIn() {
