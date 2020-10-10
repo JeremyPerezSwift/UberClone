@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import GeoFire
 
 let DB_REF = Database.database().reference()
 let REF_USERS = DB_REF.child("users")
@@ -22,6 +23,31 @@ struct Service {
             guard let dictionnary = snapshot.value as? [String: AnyObject] else { return }
             let user = User(dictionary: dictionnary)
             completion(user)
+        }
+    }
+    
+    func fetchUserData2(uid: String, completion: @escaping(User) -> Void) {
+        REF_USERS.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            guard let dictionnary = snapshot.value as? [String: AnyObject] else { return }
+            let user = User(dictionary: dictionnary)
+            completion(user)
+        }
+    }
+    
+    func fetchDrivers(location: CLLocation, withRadius: Double, completion: @escaping(User) -> Void) {
+        let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
+        
+        REF_DRIVER_LOCATIONS.observe(.value) { (snapshot) in
+            let geoFireQuery = geofire.query(at: location, withRadius: withRadius)
+
+            geoFireQuery.observe(.keyEntered, with: { (uid, location) in
+                self.fetchUserData2(uid: uid) { (user) in
+                    var driver = user
+                    driver.location = location
+                    
+                    completion(driver)
+                }
+            })
         }
     }
 }

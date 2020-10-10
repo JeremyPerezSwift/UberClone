@@ -38,6 +38,7 @@ class HomeController: UIViewController {
         checkIfUserIsLoggedIn()
         locationManagerAuthorization()
         fetchUserData()
+        fetchDrivers()
     }
     
     // MARK: - API
@@ -45,6 +46,14 @@ class HomeController: UIViewController {
     func fetchUserData() {
         Service.shared.fetchUserData { (user) in
             self.user = user
+        }
+    }
+    
+    func fetchDrivers() {
+        guard let location = locationManager?.location else { return }
+        Service.shared.fetchDrivers(location: location, withRadius: 50) { (user) in
+            print("DEBUG: Driver is \(user.fullname)")
+            print("DEBUG: Driver is \(user.location)")
         }
     }
     
