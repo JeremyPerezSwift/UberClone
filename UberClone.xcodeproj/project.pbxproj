@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2909BFF52535E72F00A3C6CE /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2909BFF42535E72F00A3C6CE /* DriverAnnotation.swift */; };
 		2924B2EF252C99160037F2A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B2EE252C99160037F2A7 /* AppDelegate.swift */; };
 		2924B2F1252C99160037F2A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2924B2F0252C99160037F2A7 /* SceneDelegate.swift */; };
 		2924B2F6252C99160037F2A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2924B2F4252C99160037F2A7 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		05C4B634D2738C376C8539AB /* Pods_UberClone_UberCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone_UberCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E6C549296047388EC6882F /* Pods-UberClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.release.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.release.xcconfig"; sourceTree = "<group>"; };
+		2909BFF42535E72F00A3C6CE /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 		2924B2EB252C99160037F2A7 /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2924B2EE252C99160037F2A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2924B2F0252C99160037F2A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				29B768AC2530A5CC00226BA7 /* User.swift */,
+				2909BFF42535E72F00A3C6CE /* DriverAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				2924B327252C9A560037F2A7 /* LoginController.swift in Sources */,
 				29F7FFCC252F010700B70922 /* HomeController.swift in Sources */,
 				29B768B22530AE9500226BA7 /* LocationHandler.swift in Sources */,
+				2909BFF52535E72F00A3C6CE /* DriverAnnotation.swift in Sources */,
 				2924B2EF252C99160037F2A7 /* AppDelegate.swift in Sources */,
 				2924B2F1252C99160037F2A7 /* SceneDelegate.swift in Sources */,
 				29B94692252F5DC400E4401F /* LocationInputActivationView.swift in Sources */,
