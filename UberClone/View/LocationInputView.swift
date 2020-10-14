@@ -9,6 +9,7 @@ import UIKit
 
 protocol LocationInputViewDelegate: AnyObject {
     func dismissLocationInputView()
+    func executeSearch(query: String)
 }
 
 class LocationInputView: UIView {
@@ -77,6 +78,7 @@ class LocationInputView: UIView {
         textfield.backgroundColor = .lightGray
         textfield.returnKeyType = .search
         textfield.font = UIFont.systemFont(ofSize: 14)
+        textfield.delegate = self
         
         let paddingView = UIView()
         paddingView.setDimensions(width: 8, height: 30)
@@ -132,5 +134,15 @@ class LocationInputView: UIView {
     @objc func handleBackTapped() {
         print("DEBUG: Handle back ...")
         delegate?.dismissLocationInputView()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension LocationInputView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let query = textField.text else { return false }
+        delegate?.executeSearch(query: query)
+        return true
     }
 }
