@@ -53,10 +53,27 @@ class HomeController: UIViewController {
     func fetchDrivers() {
         guard let location = locationManager?.location else { return }
         Service.shared.fetchDrivers(location: location, withRadius: 50) { (driver) in
+            
             guard let coordinate = driver.location?.coordinate else { return }
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
             
-            self.mapView.addAnnotation(annotation)
+            var driverIsVisible: Bool {
+                return self.mapView.annotations.contains { (annotationP) -> Bool in
+                    guard let driverAnnotation = annotationP as? DriverAnnotation else { return false }
+                    if driverAnnotation.uid == driver.uid {
+                        print("DEBUG: Handle update driver position")
+                        driverAnnotation.updateAnnotationPosition(withCoordinate: coordinate)
+                        return true
+                    }
+                    return false
+                }
+            }
+            
+            print(!driverIsVisible)
+            
+            if !driverIsVisible {
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
     
