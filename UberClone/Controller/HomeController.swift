@@ -38,8 +38,8 @@ class HomeController: UIViewController {
 //        signOut()
         checkIfUserIsLoggedIn()
         locationManagerAuthorization()
-        fetchUserData()
-        fetchDrivers()
+//        fetchUserData()
+//        fetchDrivers()
     }
     
     // MARK: - API
@@ -52,11 +52,11 @@ class HomeController: UIViewController {
     
     func fetchDrivers() {
         guard let location = locationManager?.location else { return }
-        Service.shared.fetchDrivers(location: location, withRadius: 50) { (driver) in
-            
+        Service.shared.fetchDrivers(location: location, withRadius: 10) { (driver) in
+
             guard let coordinate = driver.location?.coordinate else { return }
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
-            
+
             var driverIsVisible: Bool {
                 return self.mapView.annotations.contains { (annotationP) -> Bool in
                     guard let driverAnnotation = annotationP as? DriverAnnotation else { return false }
@@ -68,9 +68,9 @@ class HomeController: UIViewController {
                     return false
                 }
             }
-            
+
             print(!driverIsVisible)
-            
+
             if !driverIsVisible {
                 self.mapView.addAnnotation(annotation)
             }
@@ -87,7 +87,7 @@ class HomeController: UIViewController {
                 self.present(nav, animated: true, completion: nil)
             }
         } else {
-            configureUI()
+            configure()
         }
     }
     
@@ -105,6 +105,12 @@ class HomeController: UIViewController {
     }
     
     // MARK: - Helpers
+    
+    func configure() {
+        configureUI()
+        fetchUserData()
+        fetchDrivers()
+    }
     
     func configureUI() {
         configureMapView()

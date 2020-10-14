@@ -86,7 +86,7 @@ class LoginController: UIViewController {
             
             let rootViewController =  UIApplication.shared.windows.first { $0.isKeyWindow }
             guard let controller = rootViewController?.rootViewController as? HomeController else { return }
-            controller.configureUI()
+            controller.configure()
             
             self.dismiss(animated: true, completion: nil)
         }
