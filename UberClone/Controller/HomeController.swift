@@ -12,7 +12,7 @@ import MapKit
 private let reuseIdentifier = "LocationCell"
 private let annotationIdentifier = "DriverAnnotation"
 
-private enum ActionButtonConfiguration {
+enum ActionButtonConfiguration {
     case showMenu
     case dismissActionView
     
@@ -41,9 +41,9 @@ class HomeController: UIViewController {
         }
     }
     
-    private let actionButton: UIButton = {
+    let actionButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "left-arrow").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
         return button
     }()
@@ -70,10 +70,15 @@ class HomeController: UIViewController {
         case .dismissActionView:
             print("DEBUG: Handle dismissal")
             
+            mapView.annotations.forEach { (annotation) in
+                if let anno = annotation as? MKPointAnnotation {
+                    mapView.removeAnnotation(anno)
+                }
+            }
+            
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
-                self.actionButton.setImage(#imageLiteral(resourceName: "left-arrow").withRenderingMode(.alwaysOriginal), for: .normal)
-                self.actionButtonConfig = .showMenu
+                self.configureActionButton(config: .showMenu)
             }
         }
     }
@@ -167,6 +172,17 @@ class HomeController: UIViewController {
         }
         
         configureTableView()
+    }
+    
+    func configureActionButton(config: ActionButtonConfiguration) {
+        switch config {
+        case .showMenu:
+            self.actionButton.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), for: .normal)
+            self.actionButtonConfig = .showMenu
+        case .dismissActionView:
+            actionButton.setImage(#imageLiteral(resourceName: "left-arrow").withRenderingMode(.alwaysOriginal), for: .normal)
+            actionButtonConfig = .dismissActionView
+        }
     }
     
     func configureMapView() {
@@ -349,8 +365,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         
         let selectedPlacemark = searchResults[indexPath.row]
         
-        actionButton.setImage(#imageLiteral(resourceName: "chevron-sign-to-right").withRenderingMode(.alwaysOriginal), for: .normal)
-        actionButtonConfig = .dismissActionView
+        configureActionButton(config: .dismissActionView)
         
         dismissLocationView { (_) in
             let annotation = MKPointAnnotation()
