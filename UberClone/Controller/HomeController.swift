@@ -72,6 +72,7 @@ class HomeController: UIViewController {
             print("DEBUG: Handle dismissal")
             
             removeAnnotationAndOverlays()
+            mapView.showAnnotations(mapView.annotations, animated: true)
             
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
@@ -398,6 +399,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPlacemark = searchResults[indexPath.row]
+//        var annotations = [MKAnnotation]()
         
         configureActionButton(config: .dismissActionView)
         
@@ -408,6 +410,20 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             let annotation = MKPointAnnotation()
             annotation.coordinate = selectedPlacemark.coordinate
             self.mapView.addAnnotation(annotation)
+            self.mapView.selectAnnotation(annotation, animated: true)
+            
+//            self.mapView.annotations.forEach { (annotation) in
+//                if let anno = annotation as? MKUserLocation {
+//                    annotations.append(anno)
+//                }
+//                if let anno = annotation as? MKPointAnnotation {
+//                    annotations.append(anno)
+//                }
+//            }
+            
+            let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self) })
+            
+            self.mapView.showAnnotations(annotations, animated: true)
         }
     }
 }
