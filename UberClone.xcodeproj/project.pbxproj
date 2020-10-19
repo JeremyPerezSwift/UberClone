@@ -25,6 +25,7 @@
 		29B768B22530AE9500226BA7 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B768B12530AE9500226BA7 /* LocationHandler.swift */; };
 		29B8D039252EDC8700A3254F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29B8D038252EDC8700A3254F /* GoogleService-Info.plist */; };
 		29B94692252F5DC400E4401F /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B94691252F5DC400E4401F /* LocationInputActivationView.swift */; };
+		29E51BF2253DBB0A00475354 /* RideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E51BF1253DBB0A00475354 /* RideActionView.swift */; };
 		29F7FFCC252F010700B70922 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7FFCB252F010700B70922 /* HomeController.swift */; };
 		35B1798413B530A453895B89 /* Pods_UberCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94B708C936D0D120EAE8759 /* Pods_UberCloneTests.framework */; };
 		7BC9918D1F59626E4105DEC8 /* Pods_UberClone_UberCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C4B634D2738C376C8539AB /* Pods_UberClone_UberCloneUITests.framework */; };
@@ -75,6 +76,7 @@
 		29B768B12530AE9500226BA7 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		29B8D038252EDC8700A3254F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		29B94691252F5DC400E4401F /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
+		29E51BF1253DBB0A00475354 /* RideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideActionView.swift; sourceTree = "<group>"; };
 		29F7FFCB252F010700B70922 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		7670684A989613A3E16701FF /* Pods-UberClone-UberCloneUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone-UberCloneUITests.debug.xcconfig"; path = "Target Support Files/Pods-UberClone-UberCloneUITests/Pods-UberClone-UberCloneUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		78CD946794553624959B94E7 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 				29B94691252F5DC400E4401F /* LocationInputActivationView.swift */,
 				299836662530362200554345 /* LocationInputView.swift */,
 				295C2F6625305BED007F37FF /* LocationCell.swift */,
+				29E51BF1253DBB0A00475354 /* RideActionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				2960B71E25308D050084511E /* Service.swift in Sources */,
 				299836672530362200554345 /* LocationInputView.swift in Sources */,
 				2924B332252CB4D20037F2A7 /* Extension.swift in Sources */,
+				29E51BF2253DBB0A00475354 /* RideActionView.swift in Sources */,
 				29B768AD2530A5CC00226BA7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

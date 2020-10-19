@@ -28,6 +28,8 @@ class HomeController: UIViewController {
     private let mapView = MKMapView()
     private let locationManager = LocationHandler.shared.locationManager
     
+    private let rideActionView = RideActionView()
+    
     private let inputActivationView = LocationInputActivationView()
     private var locationInputView = LocationInputView()
     private let tableView = UITableView()
@@ -154,6 +156,8 @@ class HomeController: UIViewController {
     func configureUI() {
         configureMapView()
         
+        configureRideActionView()
+        
         view.addSubview(actionButton)
         actionButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingTop: 16, paddingLeft: 16, width: 30, height: 30)
         
@@ -227,6 +231,11 @@ class HomeController: UIViewController {
 //        tableView.backgroundColor = .mainBlueTint
         
         view.addSubview(tableView)
+    }
+    
+    func configureRideActionView() {
+        view.addSubview(rideActionView)
+        rideActionView.frame =  CGRect(x: 0, y: view.frame.height - 300, width: view.frame.width, height: 300)
     }
     
     func dismissLocationView(completion: ((Bool) -> Void)? = nil) {
