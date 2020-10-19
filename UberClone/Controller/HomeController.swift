@@ -444,9 +444,10 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
 //            }
             
             let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self) })
-            
             self.mapView.showAnnotations(annotations, animated: true)
+            
             self.presentRideActionView(shouldShow: true)
+            self.rideActionView.destination = selectedPlacemark
         }
     }
 }
