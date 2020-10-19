@@ -79,6 +79,7 @@ class HomeController: UIViewController {
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
                 self.configureActionButton(config: .showMenu)
+                self.presentRideActionView(shouldShow: false)
             }
         }
     }
@@ -233,11 +234,6 @@ class HomeController: UIViewController {
         view.addSubview(tableView)
     }
     
-    func configureRideActionView() {
-        view.addSubview(rideActionView)
-        rideActionView.frame =  CGRect(x: 0, y: view.frame.height - 300, width: view.frame.width, height: 300)
-    }
-    
     func dismissLocationView(completion: ((Bool) -> Void)? = nil) {
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -246,6 +242,23 @@ class HomeController: UIViewController {
             self.locationInputView.removeFromSuperview()
         }, completion: completion)
         
+    }
+    
+    func configureRideActionView() {
+        view.addSubview(rideActionView)
+        rideActionView.frame =  CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: 300)
+    }
+    
+    func presentRideActionView(shouldShow: Bool) {
+        if shouldShow {
+            UIView.animate(withDuration: 0.3) {
+                self.rideActionView.frame.origin.y = self.view.frame.height - 300
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.rideActionView.frame.origin.y = self.view.frame.height
+            }
+        }
     }
 }
 
@@ -433,6 +446,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self) })
             
             self.mapView.showAnnotations(annotations, animated: true)
+            self.presentRideActionView(shouldShow: true)
         }
     }
 }
