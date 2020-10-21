@@ -421,7 +421,6 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPlacemark = searchResults[indexPath.row]
-//        var annotations = [MKAnnotation]()
         
         configureActionButton(config: .dismissActionView)
         
@@ -434,20 +433,28 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             self.mapView.addAnnotation(annotation)
             self.mapView.selectAnnotation(annotation, animated: true)
             
-//            self.mapView.annotations.forEach { (annotation) in
-//                if let anno = annotation as? MKUserLocation {
-//                    annotations.append(anno)
-//                }
-//                if let anno = annotation as? MKPointAnnotation {
-//                    annotations.append(anno)
-//                }
-//            }
-            
             let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self) })
             self.mapView.zoomToFit(annotations: annotations)
             
             self.presentRideActionView(shouldShow: true)
             self.rideActionView.destination = selectedPlacemark
+            self.rideActionView.delegate = self
+        }
+    }
+}
+
+extension HomeController: RideActionViewDelegate {
+    func uploadTrip(_ view: RideActionView) {
+        guard let pickupCoordinates = locationManager?.location?.coordinate else { return }
+        guard let destinationCoordinates = view.destination?.coordinate else { return }
+        
+        Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { (err, ref) in
+            if let error = err {
+                print("DEBUG: Failed to upload trip with error \(error)")
+                return
+            }
+            
+            print("DEBUG: Did upload trip successfully")
         }
     }
 }
