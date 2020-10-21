@@ -67,10 +67,15 @@ struct Service {
         let values = ["pickupCoordinates": pickupArray, "destinationCoordinates": destinationArray, "state": TripState.requested.rawValue] as [String : Any]
         
         REF_TRIPS.child(uid).updateChildValues(values, withCompletionBlock: completion)
-        
-        
     }
     
-    
+    func observeTrips(completion: @escaping(Trip) -> Void) {
+        REF_TRIPS.observe(.childAdded) { (snapshot) in
+            guard let dictionnary = snapshot.value as? [String: Any] else { return }
+            let uid = snapshot.key
+            let trip = Trip(passenger: uid, dictionnary: dictionnary)
+            completion(trip)
+        }
+    }
     
 }
