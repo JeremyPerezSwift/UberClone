@@ -20,6 +20,7 @@
 		29287F6D2540363B00945292 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29287F6C2540363B00945292 /* Trip.swift */; };
 		295C2F6725305BED007F37FF /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C2F6625305BED007F37FF /* LocationCell.swift */; };
 		2960B71E25308D050084511E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960B71D25308D050084511E /* Service.swift */; };
+		296374C32541B8440019E173 /* PickupControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296374C22541B8440019E173 /* PickupControllerViewController.swift */; };
 		2981B6A2252DE7D0007CD1C0 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */; };
 		299836672530362200554345 /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299836662530362200554345 /* LocationInputView.swift */; };
 		29B768AD2530A5CC00226BA7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B768AC2530A5CC00226BA7 /* User.swift */; };
@@ -72,6 +73,7 @@
 		29287F6C2540363B00945292 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		295C2F6625305BED007F37FF /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		2960B71D25308D050084511E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		296374C22541B8440019E173 /* PickupControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupControllerViewController.swift; sourceTree = "<group>"; };
 		2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		299836662530362200554345 /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		29B768AC2530A5CC00226BA7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				2924B326252C9A560037F2A7 /* LoginController.swift */,
 				2981B6A1252DE7D0007CD1C0 /* SignUpController.swift */,
 				29F7FFCB252F010700B70922 /* HomeController.swift */,
+				296374C22541B8440019E173 /* PickupControllerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				299836672530362200554345 /* LocationInputView.swift in Sources */,
 				2924B332252CB4D20037F2A7 /* Extension.swift in Sources */,
 				29E51BF2253DBB0A00475354 /* RideActionView.swift in Sources */,
+				296374C32541B8440019E173 /* PickupControllerViewController.swift in Sources */,
 				29B768AD2530A5CC00226BA7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
